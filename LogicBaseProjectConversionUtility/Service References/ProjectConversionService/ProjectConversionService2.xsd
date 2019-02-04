@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Utilities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/ProjectConversionService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Folder" />
+  <xs:complexType name="AbstractUserContext">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientEventSessionId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DecisionsFramework.ServiceLayer.Services.Folder" minOccurs="0" name="DisplayType" type="q1:DisplayType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AbstractUserContext" nillable="true" type="tns:AbstractUserContext" />
+  <xs:complexType name="ImpersonateUserContext">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractUserContext">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RealUserContext" nillable="true" type="tns:AbstractUserContext" />
+          <xs:element minOccurs="0" name="Type" type="tns:UserIdentifierType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ImpersonateUserContext" nillable="true" type="tns:ImpersonateUserContext" />
+  <xs:simpleType name="UserIdentifierType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AccountID" />
+      <xs:enumeration value="EmailAddress" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserIdentifierType" nillable="true" type="tns:UserIdentifierType" />
+  <xs:complexType name="LocalImpersonationContext">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractUserContext">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LocalImpersonationContext" nillable="true" type="tns:LocalImpersonationContext" />
+  <xs:complexType name="LocalMachineUserContext">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractUserContext">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LocalMachineUserContext" nillable="true" type="tns:LocalMachineUserContext" />
+  <xs:complexType name="WindowsLoginUserContext">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractUserContext">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WindowsLoginUserContext" nillable="true" type="tns:WindowsLoginUserContext" />
+  <xs:complexType name="GuestUserContext">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractUserContext">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GuestUserContext" nillable="true" type="tns:GuestUserContext" />
+  <xs:complexType name="SessionUserContext">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractUserContext">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SessionValue" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SessionUserContext" nillable="true" type="tns:SessionUserContext" />
+  <xs:complexType name="PasswordCredentialsUserContext">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractUserContext">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PasswordCredentialsUserContext" nillable="true" type="tns:PasswordCredentialsUserContext" />
+  <xs:complexType name="FacebookCredentialsUserContext">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractUserContext">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FacebookID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FacebookCredentialsUserContext" nillable="true" type="tns:FacebookCredentialsUserContext" />
+  <xs:complexType name="SecuredUserContext">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AbstractUserContext">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SecuredKey" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SecuredUserContext" nillable="true" type="tns:SecuredUserContext" />
+  <xs:complexType name="FrameworkFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FrameworkFault" nillable="true" type="tns:FrameworkFault" />
+</xs:schema>

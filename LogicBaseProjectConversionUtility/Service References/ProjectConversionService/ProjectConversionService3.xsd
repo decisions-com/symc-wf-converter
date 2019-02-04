@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DecisionsFramework.ProjectConversion" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DecisionsFramework.ProjectConversion" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/decisions/Primary/API/ProjectConversionService?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ConvertedProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Flows" nillable="true" type="tns:ArrayOfConvertedFlow" />
+      <xs:element minOccurs="0" name="Forms" nillable="true" type="tns:ArrayOfConvertedForm" />
+      <xs:element minOccurs="0" name="ProjectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rules" nillable="true" type="tns:ArrayOfConvertedRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConvertedProject" nillable="true" type="tns:ConvertedProject" />
+  <xs:complexType name="ArrayOfConvertedFlow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConvertedFlow" nillable="true" type="tns:ConvertedFlow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConvertedFlow" nillable="true" type="tns:ArrayOfConvertedFlow" />
+  <xs:complexType name="ConvertedFlow">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Connections" nillable="true" type="tns:ArrayOfConvertedConnection" />
+      <xs:element minOccurs="0" name="FlowId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlowName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InputData" nillable="true" type="tns:ArrayOfDataDefinition" />
+      <xs:element minOccurs="0" name="OutputData" nillable="true" type="tns:ArrayOfDataDefinition" />
+      <xs:element minOccurs="0" name="Steps" nillable="true" type="tns:ArrayOfConvertedStep" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Tags" nillable="true" type="q1:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConvertedFlow" nillable="true" type="tns:ConvertedFlow" />
+  <xs:complexType name="ArrayOfConvertedConnection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConvertedConnection" nillable="true" type="tns:ConvertedConnection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConvertedConnection" nillable="true" type="tns:ArrayOfConvertedConnection" />
+  <xs:complexType name="ConvertedConnection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PathName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourcePortNumberOnStep" type="xs:int" />
+      <xs:element minOccurs="0" name="SourceStepId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetPortNumberOnStep" type="xs:int" />
+      <xs:element minOccurs="0" name="TargetStepId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConvertedConnection" nillable="true" type="tns:ConvertedConnection" />
+  <xs:complexType name="ArrayOfDataDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataDefinition" nillable="true" type="tns:DataDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataDefinition" nillable="true" type="tns:ArrayOfDataDefinition" />
+  <xs:complexType name="DataDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CanBeNull" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FullTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsList" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataDefinition" nillable="true" type="tns:DataDefinition" />
+  <xs:complexType name="ArrayOfConvertedStep">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConvertedStep" nillable="true" type="tns:ConvertedStep" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConvertedStep" nillable="true" type="tns:ArrayOfConvertedStep" />
+  <xs:complexType name="ConvertedStep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FullTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InputData" nillable="true" type="tns:ArrayOfStepInput" />
+      <xs:element minOccurs="0" name="OutcomeData" nillable="true" type="tns:ArrayOfStepOutcome" />
+      <xs:element minOccurs="0" name="StepName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StepProperties" nillable="true" type="tns:ArrayOfStepInput" />
+      <xs:element minOccurs="0" name="UniqueStepIdForConnections" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="X" type="xs:int" />
+      <xs:element minOccurs="0" name="Y" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConvertedStep" nillable="true" type="tns:ConvertedStep" />
+  <xs:complexType name="ArrayOfStepInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StepInput" nillable="true" type="tns:StepInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStepInput" nillable="true" type="tns:ArrayOfStepInput" />
+  <xs:complexType name="StepInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArrayParts" nillable="true" type="tns:ArrayOfStepInput" />
+      <xs:element minOccurs="0" name="ConstantValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExtraData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MappingType" type="tns:InputMappingType" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SelectValuePathName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StepInput" nillable="true" type="tns:StepInput" />
+  <xs:simpleType name="InputMappingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SelectValue" />
+      <xs:enumeration value="Constant" />
+      <xs:enumeration value="MergeText" />
+      <xs:enumeration value="ArrayBuilder" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="InputMappingType" nillable="true" type="tns:InputMappingType" />
+  <xs:complexType name="ArrayOfStepOutcome">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StepOutcome" nillable="true" type="tns:StepOutcome" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStepOutcome" nillable="true" type="tns:ArrayOfStepOutcome" />
+  <xs:complexType name="StepOutcome">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OutcomeData" nillable="true" type="tns:ArrayOfDataDefinition" />
+      <xs:element minOccurs="0" name="PathName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StepOutcome" nillable="true" type="tns:StepOutcome" />
+  <xs:complexType name="ArrayOfConvertedForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConvertedForm" nillable="true" type="tns:ConvertedForm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConvertedForm" nillable="true" type="tns:ArrayOfConvertedForm" />
+  <xs:complexType name="ConvertedForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FormData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="FormId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Tags" nillable="true" type="q2:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConvertedForm" nillable="true" type="tns:ConvertedForm" />
+  <xs:complexType name="ArrayOfConvertedRule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConvertedRule" nillable="true" type="tns:ConvertedRule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConvertedRule" nillable="true" type="tns:ArrayOfConvertedRule" />
+  <xs:complexType name="ConvertedRule">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="ConvertedRule" nillable="true" type="tns:ConvertedRule" />
+  <xs:complexType name="ConversionResult">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ConvertedFlows" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ConvertedForms" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ConvertedRules" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Errors" nillable="true" type="q6:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ErrorsOccured" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NewProjectId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConversionResult" nillable="true" type="tns:ConversionResult" />
+</xs:schema>

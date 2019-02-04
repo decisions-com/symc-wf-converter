@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{30A976E3-ED9D-4B86-A144-E0C3C5E83586}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogicBaseProjectConversionUtility</RootNamespace>
+    <AssemblyName>LogicBaseProjectConversionUtility</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DecisionsFramework">
+      <HintPath>C:\Program Files\Decisions\Decisions Services Manager\bin\DecisionsFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>C:\Program Files\Decisions\Decisions Services Manager\bin\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.ActiveDirectory, Version=7.0.1420.35, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.ActiveDirectory.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Calc, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Calc.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.CreateIIS, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.CreateIIS.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.CreditCard, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.CreditCard.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.DecisionTable, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.DecisionTable.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Default, Version=7.0.1420.126, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Default.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Demo, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Demo.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Diagnostic, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Diagnostic.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Email, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Email.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Encryption, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Encryption.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Ensemble, Version=7.0.1420.75, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Ensemble.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Examples, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Examples.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.FormBuilder">
+      <HintPath>lib\LogicBase.Components.FormBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.FormBuilder.AdvancedComponents">
+      <HintPath>lib\LogicBase.Components.FormBuilder.AdvancedComponents.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.FTP, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.FTP.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.GeneralNetworking, Version=7.0.1420.33, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.GeneralNetworking.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.IDVerify, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.IDVerify.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.LDAP, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.LDAP.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.MessageExchange, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.MessageExchange.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Messenger.AOL, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Messenger.AOL.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Messenger.MSN, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Messenger.MSN.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.MicrosoftExchange, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.MicrosoftExchange.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Monitoring, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Monitoring.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Monitoring.Hardware, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Monitoring.Hardware.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.NVelocityMerge, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.NVelocityMerge.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Office, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Office.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.PDF, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.PDF.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Scripting, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.SharePoint, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.SharePoint.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.SQL, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.SQL.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.SystemUtilities, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.SystemUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.VCalendar, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.VCalendar.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.WebserviceCaller, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.WebserviceCaller.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.WiKID, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.WiKID.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.WindowsUsers, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.WindowsUsers.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Workflow.Advanced, Version=7.0.1420.41, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Workflow.Advanced.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Components.Zip, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Components.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Core, Version=7.0.1420.41, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Core.DllRuntime, Version=7.0.1420.35, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Core.DllRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Core.Generators, Version=7.0.1420.35, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Core.Generators.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Core.WebServices, Version=7.0.1420.35, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Core.WebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Framework, Version=7.0.1420.41, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="LogicBase.Framework.Loader, Version=7.0.1420.35, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\LogicBase.Framework.Loader.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\decisions_core\lib\JSON.NET\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Components.DS, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Components.DS.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Components.Item, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Components.Item.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Components.NetBackup, Version=7.0.1420.75, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Components.NetBackup.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Components.Platform, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Components.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Components.Platform.Agent, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Components.Platform.Agent.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Components.Resource, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Components.Resource.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Components.Resource7, Version=7.0.1420.34, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Components.Resource7.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Components.ServiceDesk, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Components.ServiceDesk.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Components.ServiceDesk.Tickets, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Components.ServiceDesk.Tickets.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Generators.ASDK, Version=7.0.1420.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Generators.ASDK.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Generators.ASDK.TaskService, Version=7.0.1420.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Generators.ASDK.TaskService.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Generators.Report, Version=7.0.1420.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Generators.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Generators.ResourceService, Version=7.0.1420.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Generators.ResourceService.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Generators7.ASDK.TaskService, Version=7.0.1420.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Generators7.ASDK.TaskService.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Generators7.Report, Version=7.0.1420.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Generators7.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Generators7.ResourceService, Version=7.0.1420.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Generators7.ResourceService.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Plugins.Deploy, Version=7.0.1420.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Plugins.Deploy.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Plugins.DSConnections, Version=7.0.1420.24, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Plugins.DSConnections.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Plugins.Translation, Version=7.0.1420.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Plugins.Translation.dll</HintPath>
+    </Reference>
+    <Reference Include="Symantec.Workflow.Core, Version=7.0.1420.41, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Symantec.Workflow.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FakeDesignerPrefs.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBuilderConvertor.cs" />
+    <Compile Include="IModelCreator.cs" />
+    <Compile Include="LogicBaseStepConvertors.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ProjectConversionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="StepConvertor.cs" />
+    <Compile Include="VVDTUtility.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\ProjectConversionService\LogicBaseProjectConversionUtility.ProjectConversionService.ConversionResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProjectConversionService\ProjectConversionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectConversionService\ProjectConversionService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectConversionService\ProjectConversionService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectConversionService\ProjectConversionService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectConversionService\ProjectConversionService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectConversionService\ProjectConversionService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProjectConversionService\ProjectConversionServiceWrapper.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ProjectConversionService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProjectConversionService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProjectConversionService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ProjectConversionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FormDefinitionToPassToConverterTing\FormDefinitionToPassToConverterTing.csproj">
+      <Project>{e0d51be7-e7dc-4584-af5b-ba0246da1f29}</Project>
+      <Name>FormDefinitionToPassToConverterTing</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
